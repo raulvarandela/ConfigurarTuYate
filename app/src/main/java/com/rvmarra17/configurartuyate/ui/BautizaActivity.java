@@ -47,11 +47,11 @@ public class BautizaActivity extends AppCompatActivity {
     private void guardar() {
 
         final EditText ED_NOMBRE = this.findViewById(R.id.edNombre);
-        Intent datosRetorno = new Intent();
-        Bundle datos = new Bundle();
-                datosRetorno.putExtras(datos);
-        datos.putString("nombre", ED_NOMBRE.getText().toString());
-        this.setResult(RESULT_OK, datosRetorno);
+        final Intent DATOS_RETORNO = new Intent();
+
+        DATOS_RETORNO.putExtra("nombre", ED_NOMBRE.getText().toString());
+
+        this.setResult(Activity.RESULT_OK, DATOS_RETORNO);
         this.finish();
     }
 }
