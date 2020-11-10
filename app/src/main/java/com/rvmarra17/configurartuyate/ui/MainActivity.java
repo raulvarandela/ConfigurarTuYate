@@ -132,21 +132,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
+        super.onActivityResult( requestCode, resultCode, data );
 
-        if (resultCode== Activity.RESULT_OK){
-            switch (requestCode){
+        if ( resultCode == Activity.RESULT_OK ) {
+            switch( requestCode ) {
                 case REQ_BAUTIZA:
-                    if (data != null){
-                        this.miyate.setNombre(data.getStringExtra("name"));
+                    if ( data != null ) {
+                        this.miyate.setNombre( data.getExtras().getString( "nombre" ) );
                         this.actualiza();
-                    }else{
-                        Toast.makeText(this, "error: no hay datos", Toast.LENGTH_LONG);
+                    } else {
+                        Toast.makeText( this,
+                                "ERROR: no hay datos de retorno",
+                                Toast.LENGTH_LONG );
                     }
                     break;
             }
         }
+
+        return;
     }
 
     public static final int REQ_BAUTIZA = 101;
